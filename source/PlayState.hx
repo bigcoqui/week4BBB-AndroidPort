@@ -3506,7 +3506,9 @@ class PlayState extends MusicBeatState
 
 					if (SONG.validScore)
 					{
+					  #if newgrounds
 						NGio.unlockMedal(60961);
+						#end
 						Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 					}
 
