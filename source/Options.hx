@@ -66,7 +66,7 @@ class Option
 	public function getValue():String { return throw "stub!"; };
 	
 	// Returns whether the label is to be updated.
-	public function press(changeData:Bool):Bool { return false; }
+	public function press():Bool { return throw "stub!"; }
 	private function updateDisplay():String { return throw "stub!"; }
 	public function left():Bool { return throw "stub!"; }
 	public function right():Bool { return throw "stub!"; }
@@ -663,7 +663,7 @@ class AndroidControls extends Option
 		super();
 	}
 
-	public override function press(changeData:Bool):Bool
+	public override function press():Bool
 	{
 		if(changeData)
 		FlxG.switchState(new android.AndroidControlsMenu());
