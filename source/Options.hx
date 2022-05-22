@@ -72,7 +72,25 @@ class Option
 	public function right():Bool { return throw "stub!"; }
 }
 
+class AndroidControls extends Option
+{
+	public function new()
+	{
+		super();
+	}
 
+	public override function press():Bool
+	{
+		trace("switch");
+		FlxG.switchState(new android.AndroidControlsMenu());
+		return false;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Android Controls";
+	}
+}
 
 class DFJKOption extends Option
 {
@@ -654,24 +672,4 @@ class BotPlay extends Option
 	
 	private override function updateDisplay():String
 		return "BotPlay " + (FlxG.save.data.botplay ? "on" : "off");
-}
-		
-class AndroidControls extends Option
-{
-	public function new()
-	{
-		super();
-	}
-
-	public override function press():Bool
-	{
-		if(changeData)
-		FlxG.switchState(new android.AndroidControlsMenu());
-		return false;
-	}
-
-	private override function updateDisplay():String
-	{
-		return "Android Controls";
-	}
 }
