@@ -20,7 +20,9 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+#if newgrounds
 import io.newgrounds.NG;
+#end
 import lime.app.Application;
 import openfl.Assets;
 
@@ -50,10 +52,8 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		
-		#if sys
-		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
-			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
+		#if android
+		FlxG.android.preventDefaultKeys = [BACK];
 		#end
 
 		@:privateAccess
@@ -287,12 +287,14 @@ class TitleState extends MusicBeatState
 
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
+		  #if newgrounds
 			#if !switch
 			NGio.unlockMedal(60960);
 
 			// If it's Friday according to da clock
 			if (Date.now().getDay() == 5)
 				NGio.unlockMedal(61034);
+			#end
 			#end
 
 			if (FlxG.save.data.flashing)
