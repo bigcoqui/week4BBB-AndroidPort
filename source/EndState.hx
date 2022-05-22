@@ -26,10 +26,6 @@ class EndState extends FlxState
 		add(bg);
         FlxG.sound.playMusic(Paths.music("eilot","shared"),1,false);
         camera.flash(FlxColor.BLACK, 1);
-        
-  #if android
-  addVirtualPad(NONE, A);
-  #end
 	}
 	override public function update(elapsed:Float):Void 
 	{
