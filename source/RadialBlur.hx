@@ -8,7 +8,6 @@ import flixel.system.FlxAssets.FlxShader;
  */
 class RadialBlur extends FlxShader
 {
-
 	@:glFragmentSource('
 		#pragma header
 
@@ -49,6 +48,6 @@ class RadialBlur extends FlxShader
 		super();
 		cx.value = [0.0];
 		cy.value = [0.0];
-		blurWidth = [10.0];
+		blurWidth.value = [10.0];
 	}
 }
