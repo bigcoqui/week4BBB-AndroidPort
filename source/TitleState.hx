@@ -262,14 +262,10 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 
-		#if mobile
+		#if android
 		for (touch in FlxG.touches.list)
-		{
 			if (touch.justPressed)
-			{
 				pressedEnter = true;
-			}
-		}
 		#end
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
@@ -310,68 +306,8 @@ class TitleState extends MusicBeatState
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
-				// Get current version of Kade Engine
-				
-				var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/master/version.downloadMe");
-				var returnedData:Array<String> = [];
-				
-				http.onData = function (data:String)
-				{
-					returnedData[0] = data.substring(0, data.indexOf(';'));
-					returnedData[1] = data.substring(data.indexOf('-'), data.length);
-				  	if (!MainMenuState.kadeEngineVer.contains(returnedData[0].trim()) && !OutdatedSubState.leftState && MainMenuState.nightly == "")
-					{
-						#if windows
-							var randomnessLol:Int;
-							randomnessLol = 0;
-							randomnessLol = FlxG.random.int(0, 100);
-							trace(randomnessLol);
-							if(randomnessLol == 69)
-							{
-								FlxG.switchState(new AntiState());
-							}
-							else
-							{
-								//FlxG.switchState(new AntiState());
-								FlxG.switchState(new MainMenuState());
-							}
-						#end
-
-						#if html5
-							FlxG.switchState(new AntiState());
-						#end
-					}
-					else
-					{
-						#if windows
-							var randomnessLol:Int;
-							randomnessLol = 0;
-							randomnessLol = FlxG.random.int(0, 100);
-							trace(randomnessLol);
-							if(randomnessLol == 69)
-							{
-								FlxG.switchState(new AntiState());
-							}
-							else
-							{
-								FlxG.switchState(new MainMenuState());
-							}
-						#end
-
-						#if html5
-							FlxG.switchState(new AntiState());
-						#end
-					}
-				}
-				
-				http.onError = function (error) {
-				  trace('error: $error');
-				  FlxG.switchState(new MainMenuState()); // fail but we go anyway
-				}
-				
-				http.request();
+				 FlxG.switchState(new MainMenuState());
 			});
-			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
 		}
 
 		if (pressedEnter && !skippedIntro && initialized)
@@ -430,16 +366,10 @@ class TitleState extends MusicBeatState
 		{
 			case 1:
 				createCoolText(['vomic', 'evdial', 'saku']);
-			// credTextShit.visible = true;
 			case 3:
 				addMoreText('present');
-			// credTextShit.text += '\npresent...';
-			// credTextShit.addText();
 			case 4:
 				deleteCoolText();
-			// credTextShit.visible = false;
-			// credTextShit.text = 'In association \nwith';
-			// credTextShit.screenCenter();
 			case 5:
 				if (Main.watermarks)
 					createCoolText(['The coolest mod', 'You will ']);
@@ -453,34 +383,21 @@ class TitleState extends MusicBeatState
 					addMoreText('Newgrounds');
 					ngSpr.visible = true;
 				}
-			// credTextShit.text += '\nNewgrounds';
 			case 8:
 				deleteCoolText();
 				ngSpr.visible = false;
-			// credTextShit.visible = false;
-
-			// credTextShit.text = 'Shoutouts Tom Fulp';
-			// credTextShit.screenCenter();
 			case 9:
 				createCoolText([curWacky[0]]);
-			// credTextShit.visible = true;
 			case 11:
 				addMoreText(curWacky[1]);
-			// credTextShit.text += '\nlmao';
 			case 12:
 				deleteCoolText();
-			// credTextShit.visible = false;
-			// credTextShit.text = "Friday";
-			// credTextShit.screenCenter();
 			case 13:
 				addMoreText('Baby');
-			// credTextShit.visible = true;
 			case 14:
 				addMoreText('Blue');
-			// credTextShit.text += '\nNight';
 			case 15:
-				addMoreText('Brother'); // credTextShit.text += '\nFunkin';
-
+				addMoreText('Brother');
 			case 16:
 				skipIntro();
 		}
