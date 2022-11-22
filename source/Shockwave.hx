@@ -15,10 +15,11 @@ class Shockwave extends FlxShader
 		
 		void main()
 		{
+		  #pragma body
 			//openfl_TextureCoordv.st += vec2(scale, 0.0);
 			vec4 daFrag = texture2D(bitmap, openfl_TextureCoordv);
 		
-			if (radius == 0)
+			if (radius == 0.)
 			{
 				daFrag.r = -daFrag.r;
 				daFrag.g = -daFrag.g;
