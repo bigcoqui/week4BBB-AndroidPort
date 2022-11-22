@@ -34,7 +34,7 @@ jobs:
         with:
           java-version: 11
 
-      - name: Setup Android SDK
+      - name: Setup Android SD
         uses: android-actions/setup-android@v2
 
       - name: Setup Haxe
@@ -46,8 +46,8 @@ jobs:
         run: |
           haxelib setup /home/runner/haxelib
           haxelib install hxcpp > /dev/null
-          haxelib install lime 7.9.0
-          haxelib install openfl 9.1.0
+          haxelib install lime 8.0.0
+          haxelib install openfl 9.2.0
           haxelib --never install flixel
           haxelib run lime setup flixel
           haxelib install flixel-tools
