@@ -12,15 +12,15 @@ class ShockwaveHandler
 		switch(valName)
 		{
 			case "texOffset":
-				daShit = shockwave.shader.data.texOffset.value;
+				daShit = shockwave.shader.texOffset.value;
 			case "centerX":
-				daShit = shockwave.shader.data.centerX.value;
+				daShit = shockwave.shader.centerX.value;
 			case "centerY":
-				daShit = shockwave.shader.data.centerY.value;
+				daShit = shockwave.shader.centerY.value;
 			case "radius":
-				daShit = shockwave.shader.data.radius.value;
+				daShit = shockwave.shader.radius.value;
 			case "scale":
-				daShit = shockwave.shader.data.scale.value;
+				daShit = shockwave.shader.scale.value;
 		}
 		return daShit;
 	}
@@ -32,15 +32,15 @@ class ShockwaveHandler
 		switch(valName)
 		{
 			case "texOffset":
-				shockwave.shader.data.texOffset.value = valueData;
+				shockwave.shader.texOffset.value = valueData;
 			case "centerX":
-				shockwave.shader.data.centerX.value = valueData;
+				shockwave.shader.centerX.value = valueData;
 			case "centerY":
-				shockwave.shader.data.centerY.value = valueData;
+				shockwave.shader.centerY.value = valueData;
 			case "radius":
-				shockwave.shader.data.radius.value = valueData;
+				shockwave.shader.radius.value = valueData;
 			case "scale":
-				shockwave.shader.data.scale.value = valueData;
+				shockwave.shader.scale.value = valueData;
 		}
 		}
 	}
