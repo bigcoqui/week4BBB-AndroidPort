@@ -145,7 +145,7 @@ class FreeplayExtraState extends MusicBeatState
 
 			trace(md);
 		 */
-		 
+
     #if android
     addVirtualPad(UP_DOWN, A_B);
     #end
@@ -203,11 +203,6 @@ class FreeplayExtraState extends MusicBeatState
 		{
 			changeSelection(1);
 		}
-
-		//if (controls.LEFT_P)
-		//	changeDiff(-1);
-		//if (controls.RIGHT_P)
-		//	changeDiff(1);
 
 		if (controls.BACK)
 		{
@@ -273,10 +268,6 @@ class FreeplayExtraState extends MusicBeatState
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		// lerpScore = 0;
-		#end
-
-		#if PRELOAD_ALL
-		//FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
 		#end
 
 		var bullShit:Int = 0;
