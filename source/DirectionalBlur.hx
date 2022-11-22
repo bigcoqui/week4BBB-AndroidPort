@@ -13,13 +13,14 @@ class DirectionalBlur extends FlxShader
 		#pragma header
 			uniform float angle;
 			uniform float strength;
-	vec4 color = texture2D(bitmap, openfl_TextureCoordv);
-			vec2 uv = openfl_TextureCoordv.xy;
 
 		const int samples = 20;
 
 		void main()
 		{
+		  #pragma body
+	    vec4 color = texture2D(bitmap, openfl_TextureCoordv);
+			vec2 uv = openfl_TextureCoordv.xy;
 			float r = radians(angle);
 			vec2 direction = vec2(sin(r), cos(r));
 			vec2 ang = strength * direction;
