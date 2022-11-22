@@ -6,9 +6,9 @@ name: Android Build
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ main-notweuz ]
+    branches: [ main ]
   pull_request:
-    branches: [ main-notweuz ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -53,7 +53,8 @@ jobs:
           haxelib install flixel-tools
           haxelib install flixel-ui
           haxelib install hscript
-          haxelib install flixel-addons
+          haxelib git flixel https://github.com/13rice/flixel
+          haxelib git flixel-addons https://github.com/ninjamuffin99/flixel-addons
           haxelib list
 
       - name: Create Version Tag
